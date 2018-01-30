@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Schronisko Reksio i Klakier</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <style type="text/css">
+
+        .header {
+            background: darkslateblue;
+            height: 100px;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            width: 600px;
+            margin: auto;
+        }
+        .content {
+            background: antiquewhite;
+            height: 100%;
+            color: black;
+            list-style-type: georgian;
+        }
+        .links a {
+            background: white;
+            padding: 10px;
+            color: dodgerblue;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <div>
+            <h1>Schronisko Reksio i Klakier</h1>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+
+    <h2 th:text="${pageInfo}" /> <br/>
+
+        <p> KATEGORIE:
+            <a style="color: blue" href="../animals.html" th:href="@{/schronisko}">WSZYSTKIE </a>
+            <a style="color: blue" href="../animals.html" th:href="@{/schronisko?type=Psy}">PSY </a>
+            <a style="color: blue" href="../animals.html" th:href="@{/schronisko?type=Koty}">KOTY </a>
+            <a style="color: blue" href="../animals.html" th:href="@{/schronisko?type=Świnki}">INNE</a>
+        </p>
+
+    <table class="table">
+
+        <tbody>
+        <tr th:each="z: ${zwierz}">
+
+            <div class="media">
+                <td><a href="../animalsDetails.html" th:href="@{/schronisko/} + ${z.name}"> <img th:src="${z.name} + '.jpg'" /> </a> </td>
+
+                <div class="media-body">
+
+                    <td> <a href="../animalsDetails.html" th:href="@{/schronisko/} + ${z.name}"> <h3 class="mt-0" th:text="${z.name}"/> </a>
+
+                        <a href="../animalsDetails.html" th:href="@{/schronisko/} + ${z.name}"
+                           style="color: black" th:size="12" th:text="|${z.description.substring(0,100) + '...'}"> inny zwierzak to duży pies</a> </td>
+
+                </div>
+            </div>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

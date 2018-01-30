@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Schronisko Reksio i Klakier</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <style type="text/css">
+
+        .header {
+            background: darkslateblue;
+            height: 100px;
+            color: black;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            width: 600px;
+            margin: auto;
+        }
+        .content {
+            background: lightskyblue;
+            height: 1000px;
+            color: black;
+            list-style-type: georgian;
+        }
+        .content2 {
+            background: royalblue;
+            height: 100px;
+            color: black;
+            list-style-type: georgian;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <div>
+            <h1>Schronisko Reksio i Klakier</h1>
+        </div>
+    </div>
+</div>
+    <div class="content2">
+        <a style="color: orangered" href="../animals.html" th:href="@{/schronisko}">Powrót</a> <br/>
+        <h2 th:text="${zwierzak.type} + ' szukające domu: '" /> <br/>
+    </div>
+
+    <div class="content">
+        <h3 th:text= "${zwierzak.name}" /> <br/>
+        <p th:text="${zwierzak.description}" />
+    </div>
+
+</body>
+</html>
